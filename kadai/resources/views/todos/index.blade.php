@@ -35,7 +35,8 @@
     </tr>
     @foreach ($todos as $todo)
     <tr>
-      <td>{{$todo->id}}</td>
+      <td>{{ $loop->iteration }}</td>
+      <!--<td>{{$todo->id}}</td>-->
       <td>{{$todo->body}}</td>
       <td><span class="label">{{ $todo->status_label }}</span></td>
 
