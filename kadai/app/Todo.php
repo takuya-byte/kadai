@@ -9,8 +9,8 @@ class Todo extends Model
 
 const STATUS = [
     
-0 => [ 'label' => ' 作業中' ],
-1 => [ 'label' => ' 完了' ], 
+false => [ 'label' => ' 完了' ],
+true => [ 'label' => ' 作業中' ], 
 ];
 
 public function getStatusLabelAttribute()
