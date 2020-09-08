@@ -41,7 +41,7 @@
       <form action="{{ url('status/' , $todo->id) }}" method="POST">
         @csrf
         <button type="submit">
-          @if ($todo->status === 0)
+          @if ($todo->status)
           <p>作業中</p>
           @else
           <p>完了</p>
