@@ -24,12 +24,12 @@ class TodosController extends Controller
         $todo->delete();
        return redirect('/');
      }
-         public function edit(todo $todo) {
-      return view('todos.edit')->with('todo',$todo);
-    }
-        public function update(Request $request,todo $todo) {
-      $todo->body = $request->body;
-      $todo->save();
-      return redirect('/');
-    }
+     
+     public function status($id)
+  {
+    $todo = Todo::find($id);
+    $todo->status = ($todo->status) ? 0 : 1;
+    $todo->save();
+    return redirect('/');
+  }
 }

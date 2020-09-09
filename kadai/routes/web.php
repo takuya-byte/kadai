@@ -17,3 +17,5 @@
 
 Route::get('/','TodosController@index'); 
 Route::resource('todos','TodosController');
+
+Route::post('/status/{id}/', 'TodosController@status');

@@ -36,11 +36,21 @@
     @foreach ($todos as $todo)
     <tr>
       <td>{{ $loop->iteration }}</td>
-      <!--<td>{{$todo->id}}</td>-->
-      <td>{{$todo->body}}</td>
-      <td><span class="label">{{ $todo->status_label }}</span></td>
-
-      <!-- 削除ボタン -->
+     
+     <td>
+      <form action="{{ url('status/' , $todo->id) }}" method="POST">
+        @csrf
+        <button type="submit">
+          @if ($todo->status)
+          <p>作業中</p>
+          @else
+          <p>完了</p>
+          @endif
+        </button>
+      </form>
+    </td>
+     
+     
       <td><form action="{{url('/todos', $todo->id)}}" method="post">
           {{ csrf_field() }}
           {{ method_field('delete') }}
